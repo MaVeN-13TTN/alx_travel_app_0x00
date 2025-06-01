@@ -1,5 +1,11 @@
 from rest_framework import serializers
-from .models import Listing, ListingImage, Amenity, ListingAmenity
+from .models import (
+    Listing,
+    ListingImage,
+    Amenity,
+    ListingAmenity,
+    Booking,
+)  # Added Booking
 
 
 class AmenitySerializer(serializers.ModelSerializer):
@@ -45,3 +51,9 @@ class ListingSerializer(serializers.ModelSerializer):
         return AmenitySerializer(
             [item.amenity for item in amenity_items], many=True
         ).data
+
+
+class BookingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Booking
+        fields = "__all__"  # Or specify fields like ['id', 'listing', 'guest', 'check_in_date']
