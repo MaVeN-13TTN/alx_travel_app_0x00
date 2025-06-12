@@ -11,6 +11,8 @@ from . import views
 router = DefaultRouter()
 router.register(r"listings", views.ListingViewSet)
 router.register(r"amenities", views.AmenityViewSet)
+router.register(r"bookings", views.BookingViewSet)
+router.register(r"reviews", views.ReviewViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
